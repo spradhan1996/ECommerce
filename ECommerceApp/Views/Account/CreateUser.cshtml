@@ -1,114 +1,4 @@
-﻿@* 
-
-
-
-@{
-    ViewData["Title"] = "Create User";
-}
-
-<h2>Create New User</h2>
-
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
-}
-
-@if (TempData["ErrorMessage"] != null)
-{
-    <div class="alert alert-danger">
-        @TempData["ErrorMessage"]
-    </div>
-}
-
-<form method="post" asp-action="CreateUser">
-    @Html.AntiForgeryToken()
-
-    <div class="form-group">
-        <label for="newUsername">Name</label>
-        <input type="text" id="name" name="name" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="newUsername">Mobile Number</label>
-        <input type="text" id="mobileno" name="mobileno" class="form-control" required onkeyup="checkUsername()" />
-    </div>
-
-    <div class="form-group">
-        <label for="newUsername">Username</label>
-        <input type="text" id="newUsername" name="newUsername" class="form-control" required onkeyup="checkUsername()" />
-        <small id="usernameError" class="text-danger" style="display: none;">Username already exists!</small>
-    </div>
-
-    <div class="form-group">
-        <label for="newPassword">Password</label>
-        <input type="password" id="newPassword" name="newPassword" class="form-control" required onkeyup="validatePassword()" />
-    </div>
-
-    <div class="form-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required onkeyup="validatePassword()" />
-        <small id="passwordError" class="text-danger" style="display: none;">Passwords do not match!</small>
-    </div>
-
-    <div class="form-group">
-        <label for="newRole">Role</label>
-        <select id="newRole" name="newRole" class="form-control" required>
-            <option value="Buyer">Buyer</option>
-            <option value="Seller">Seller</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <button type="submit" id="createUserBtn" class="btn btn-success" disabled>Create User</button>
-    </div>
-</form>
-
-<!-- Back to Login Link -->
-<div>
-    <a href="/Account/Login" class="btn btn-link">Back to Login</a>
-</div>
-
-<script>
-    function validatePassword() {
-        let password = document.getElementById("newPassword").value;
-        let confirmPassword = document.getElementById("confirmPassword").value;
-        let errorMsg = document.getElementById("passwordError");
-        let createBtn = document.getElementById("createUserBtn");
-
-        if (password === confirmPassword && password.length > 0) {
-            errorMsg.style.display = "none";
-            createBtn.disabled = false;
-        } else {
-            errorMsg.style.display = "block";
-            createBtn.disabled = true;
-        }
-    }
-
-    function checkUsername() {
-        let username = document.getElementById("newUsername").value;
-        let errorMsg = document.getElementById("usernameError");
-        let createBtn = document.getElementById("createUserBtn");
-
-        if (username.length > 0) {
-            fetch(`/Account/CheckUsername?username=${username}`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.exists) {
-                        errorMsg.style.display = "block";
-                        createBtn.disabled = true;
-                    } else {
-                        errorMsg.style.display = "none";
-                        createBtn.disabled = false;
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        }
-    }
-</script>
- *@
-
+﻿
 
                @model ECommerceApp.Models.LoginViewModel
 
@@ -120,7 +10,7 @@
     body, html {
         height: 100%;
         margin: 0;
-        background: white; /* Changed background color to white */
+        background: white; 
         display: flex;
         align-items: center;
         justify-content: center;
@@ -193,6 +83,7 @@
                     <option value="">Select Role</option>
                     <option value="Buyer">Buyer</option>
                     <option value="Seller">Seller</option>
+                    <option value="Admin">Admin</option>
                 </select>
             </div>
 
@@ -201,7 +92,7 @@
             </div>
         </form>
 
-        <!-- Back to Login Link -->
+        
         <div class="text-center mt-3">
             @* <a href="/Account/Login" class="btn btn-link text-decoration-none text-primary fw-bold">Back to Login</a> *@
             <a href="/Account/Login" class="btn btn-link text-primary fw-bold" style="text-decoration: none !important; border: none !important;">Back to Login</a>

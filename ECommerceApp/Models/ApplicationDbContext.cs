@@ -10,8 +10,8 @@ namespace ECommerceApp.Models
 
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
-        public DbSet<Users> Users { get; set; }  // Ensure this line is here
-        // Add other DbSets here
+        public DbSet<Users> Users { get; set; }  
+       
     }
 
 }

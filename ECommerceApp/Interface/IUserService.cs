@@ -5,7 +5,7 @@ namespace ECommerceApp.Interface
     public interface IUserService
     {
        
-            Task<Users> GetCurrentUserAsync();  // Method to fetch the current logged-in user
+            Task<Users> GetCurrentUserAsync();  
         
 
     }

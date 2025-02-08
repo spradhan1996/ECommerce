@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "08IHxh2vIgW8VxVZDzrMRr53VQQAuhJwKh86pLba3RY=",
+  "Hash": "VJOTnOIzlvwqnN6s3Bcwizc4bfJZ3vGoXr3TJt7C6z4=",
   "Source": "ECommerceApp",
   "BasePath": "_content/ECommerceApp",
   "Mode": "Default",
@@ -122,6 +122,27 @@
       "OriginalItemSpec": "wwwroot\\images\\06f1ddda-0ad4-4629-8605-84459358e60d.JPG"
     },
     {
+      "Identity": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\0a0c69b6-33fd-482c-b6e3-7c4f38dd6b44.webp",
+      "SourceId": "ECommerceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\",
+      "BasePath": "_content/ECommerceApp",
+      "RelativePath": "images/0a0c69b6-33fd-482c-b6e3-7c4f38dd6b44#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j5ngxmk6ec",
+      "Integrity": "yY2LaWOwRYqBlJwlw1MWectmSPC2p++9H4AvF78K6qE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\0a0c69b6-33fd-482c-b6e3-7c4f38dd6b44.webp"
+    },
+    {
       "Identity": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\102ec237-5bfb-4b7d-aaa3-3f62031e8903.jpeg",
       "SourceId": "ECommerceApp",
       "SourceType": "Discovered",
@@ -162,6 +183,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\2b7f02a8-dbbd-449f-8827-3e43ee018e2d.webp"
+    },
+    {
+      "Identity": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\3c5710ac-cb9d-4d8f-ad1e-eb99e644f847.webp",
+      "SourceId": "ECommerceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\",
+      "BasePath": "_content/ECommerceApp",
+      "RelativePath": "images/3c5710ac-cb9d-4d8f-ad1e-eb99e644f847#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "sd44d5y889",
+      "Integrity": "0I9ct4mhmE+KXtN0QPwlxRwWGieiSb8c+l9xc77rRjE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\3c5710ac-cb9d-4d8f-ad1e-eb99e644f847.webp"
+    },
+    {
+      "Identity": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\5256eecf-8224-4e01-abbf-95438e28583a.jpg",
+      "SourceId": "ECommerceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\",
+      "BasePath": "_content/ECommerceApp",
+      "RelativePath": "images/5256eecf-8224-4e01-abbf-95438e28583a#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gdwrtqric9",
+      "Integrity": "pPGm76yud/lMkSVJ4Z+6zw6IPx08q++G9Zo63QgvUrk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\5256eecf-8224-4e01-abbf-95438e28583a.jpg"
     },
     {
       "Identity": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\5a935ad7-5f71-44de-856c-4dac660b5e9e.JPG",
@@ -267,6 +330,48 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\c1b10910-6d81-4bf1-985f-3f9442f4edef.JPG"
+    },
+    {
+      "Identity": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\d8d73dee-5e04-428f-9b5b-82bc6c5f0112.jpg",
+      "SourceId": "ECommerceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\",
+      "BasePath": "_content/ECommerceApp",
+      "RelativePath": "images/d8d73dee-5e04-428f-9b5b-82bc6c5f0112#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bw9fxaji6f",
+      "Integrity": "JUcM0f3OCQjxi5zuwdlA1oJuCJbFebDN2sMy511hqoI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\d8d73dee-5e04-428f-9b5b-82bc6c5f0112.jpg"
+    },
+    {
+      "Identity": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\d8e2ae04-8496-471b-90be-3a352f23ad34.avif",
+      "SourceId": "ECommerceApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\",
+      "BasePath": "_content/ECommerceApp",
+      "RelativePath": "images/d8e2ae04-8496-471b-90be-3a352f23ad34#[.{fingerprint}]?.avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "kn3npsptfq",
+      "Integrity": "QOsHwgIJPiUZQXVhSwh+iRCeapOxLJnvUrWuYRbS3Gw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\d8e2ae04-8496-471b-90be-3a352f23ad34.avif"
     },
     {
       "Identity": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\f5ec853e-4a4a-44ee-a6ee-9d83914a3dcb.webp",
@@ -1635,7 +1740,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 06 Feb 2025 13:23:13 GMT"
+          "Value": "Sat, 08 Feb 2025 05:27:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1680,7 +1785,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 06 Feb 2025 13:23:13 GMT"
+          "Value": "Sat, 08 Feb 2025 05:27:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1725,7 +1830,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 06 Feb 2025 13:23:13 GMT"
+          "Value": "Sat, 08 Feb 2025 05:27:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1762,7 +1867,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 06 Feb 2025 13:23:13 GMT"
+          "Value": "Sat, 08 Feb 2025 05:27:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1941,6 +2046,88 @@
       ]
     },
     {
+      "Route": "images/0a0c69b6-33fd-482c-b6e3-7c4f38dd6b44.j5ngxmk6ec.webp",
+      "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\0a0c69b6-33fd-482c-b6e3-7c4f38dd6b44.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8776"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yY2LaWOwRYqBlJwlw1MWectmSPC2p++9H4AvF78K6qE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 05:29:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j5ngxmk6ec"
+        },
+        {
+          "Name": "label",
+          "Value": "images/0a0c69b6-33fd-482c-b6e3-7c4f38dd6b44.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-yY2LaWOwRYqBlJwlw1MWectmSPC2p++9H4AvF78K6qE="
+        }
+      ]
+    },
+    {
+      "Route": "images/0a0c69b6-33fd-482c-b6e3-7c4f38dd6b44.webp",
+      "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\0a0c69b6-33fd-482c-b6e3-7c4f38dd6b44.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8776"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yY2LaWOwRYqBlJwlw1MWectmSPC2p++9H4AvF78K6qE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 05:29:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-yY2LaWOwRYqBlJwlw1MWectmSPC2p++9H4AvF78K6qE="
+        }
+      ]
+    },
+    {
       "Route": "images/102ec237-5bfb-4b7d-aaa3-3f62031e8903.g4vrck1201.jpeg",
       "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\102ec237-5bfb-4b7d-aaa3-3f62031e8903.jpeg",
       "Selectors": [],
@@ -2101,6 +2288,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-yY2LaWOwRYqBlJwlw1MWectmSPC2p++9H4AvF78K6qE="
+        }
+      ]
+    },
+    {
+      "Route": "images/3c5710ac-cb9d-4d8f-ad1e-eb99e644f847.sd44d5y889.webp",
+      "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\3c5710ac-cb9d-4d8f-ad1e-eb99e644f847.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0I9ct4mhmE+KXtN0QPwlxRwWGieiSb8c+l9xc77rRjE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 05:30:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "sd44d5y889"
+        },
+        {
+          "Name": "label",
+          "Value": "images/3c5710ac-cb9d-4d8f-ad1e-eb99e644f847.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0I9ct4mhmE+KXtN0QPwlxRwWGieiSb8c+l9xc77rRjE="
+        }
+      ]
+    },
+    {
+      "Route": "images/3c5710ac-cb9d-4d8f-ad1e-eb99e644f847.webp",
+      "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\3c5710ac-cb9d-4d8f-ad1e-eb99e644f847.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0I9ct4mhmE+KXtN0QPwlxRwWGieiSb8c+l9xc77rRjE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 05:30:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0I9ct4mhmE+KXtN0QPwlxRwWGieiSb8c+l9xc77rRjE="
+        }
+      ]
+    },
+    {
+      "Route": "images/5256eecf-8224-4e01-abbf-95438e28583a.gdwrtqric9.jpg",
+      "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\5256eecf-8224-4e01-abbf-95438e28583a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13820"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pPGm76yud/lMkSVJ4Z+6zw6IPx08q++G9Zo63QgvUrk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 05:30:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gdwrtqric9"
+        },
+        {
+          "Name": "label",
+          "Value": "images/5256eecf-8224-4e01-abbf-95438e28583a.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pPGm76yud/lMkSVJ4Z+6zw6IPx08q++G9Zo63QgvUrk="
+        }
+      ]
+    },
+    {
+      "Route": "images/5256eecf-8224-4e01-abbf-95438e28583a.jpg",
+      "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\5256eecf-8224-4e01-abbf-95438e28583a.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "13820"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pPGm76yud/lMkSVJ4Z+6zw6IPx08q++G9Zo63QgvUrk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 05:30:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pPGm76yud/lMkSVJ4Z+6zw6IPx08q++G9Zo63QgvUrk="
         }
       ]
     },
@@ -2511,6 +2862,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-n7vjAkvl+S0oFOpXcaNYBHqZazV5dEJPbsh1lg+lhZE="
+        }
+      ]
+    },
+    {
+      "Route": "images/d8d73dee-5e04-428f-9b5b-82bc6c5f0112.bw9fxaji6f.jpg",
+      "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\d8d73dee-5e04-428f-9b5b-82bc6c5f0112.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "100401"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JUcM0f3OCQjxi5zuwdlA1oJuCJbFebDN2sMy511hqoI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 05:29:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bw9fxaji6f"
+        },
+        {
+          "Name": "label",
+          "Value": "images/d8d73dee-5e04-428f-9b5b-82bc6c5f0112.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-JUcM0f3OCQjxi5zuwdlA1oJuCJbFebDN2sMy511hqoI="
+        }
+      ]
+    },
+    {
+      "Route": "images/d8d73dee-5e04-428f-9b5b-82bc6c5f0112.jpg",
+      "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\d8d73dee-5e04-428f-9b5b-82bc6c5f0112.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "100401"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JUcM0f3OCQjxi5zuwdlA1oJuCJbFebDN2sMy511hqoI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 05:29:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-JUcM0f3OCQjxi5zuwdlA1oJuCJbFebDN2sMy511hqoI="
+        }
+      ]
+    },
+    {
+      "Route": "images/d8e2ae04-8496-471b-90be-3a352f23ad34.avif",
+      "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\d8e2ae04-8496-471b-90be-3a352f23ad34.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5198"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QOsHwgIJPiUZQXVhSwh+iRCeapOxLJnvUrWuYRbS3Gw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 05:29:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QOsHwgIJPiUZQXVhSwh+iRCeapOxLJnvUrWuYRbS3Gw="
+        }
+      ]
+    },
+    {
+      "Route": "images/d8e2ae04-8496-471b-90be-3a352f23ad34.kn3npsptfq.avif",
+      "AssetFile": "D:\\ECommereceApp\\ECommerceApp\\ECommerceApp\\wwwroot\\images\\d8e2ae04-8496-471b-90be-3a352f23ad34.avif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5198"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QOsHwgIJPiUZQXVhSwh+iRCeapOxLJnvUrWuYRbS3Gw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 08 Feb 2025 05:29:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "kn3npsptfq"
+        },
+        {
+          "Name": "label",
+          "Value": "images/d8e2ae04-8496-471b-90be-3a352f23ad34.avif"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QOsHwgIJPiUZQXVhSwh+iRCeapOxLJnvUrWuYRbS3Gw="
         }
       ]
     },

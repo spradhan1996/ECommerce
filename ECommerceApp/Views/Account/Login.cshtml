@@ -1,54 +1,4 @@
-﻿@* 
-
-@model ECommerceApp.Models.LoginViewModel
-
-@{
-    ViewData["Title"] = "Login";
-}
-
-<h2>Login</h2>
-
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["SuccessMessage"]
-    </div>
-}
-
-@if (TempData["ErrorMessage"] != null)
-{
-    <div class="alert alert-danger">
-        @TempData["ErrorMessage"]
-    </div>
-}
-
-<form method="post" asp-action="Login">
-    <div class="form-group">
-        <label for="Username">Username</label>
-        <input type="text" id="Username" name="Username" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Password">Password</label>
-        <input type="password" id="Password" name="Password" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Login</button>
-    </div>
-</form>
-
-<!-- Link to Create User Page -->
-<div>
-    <button id="createUserBtn" class="btn btn-link">Create User</button>
-</div>
-
-<script>
-    document.getElementById("createUserBtn").addEventListener("click", function() {
-        window.location.href = '/Account/CreateUser';  // Redirect to Create User page
-    });
-</script>
- *@
+﻿
 
         @model ECommerceApp.Models.LoginViewModel
 
@@ -102,7 +52,7 @@
             </div>
         </form>
 
-        <!-- Link to Create User Page -->
+       
         <div class="text-center mt-3">
             <button id="createUserBtn" class="btn btn-link text-decoration-none text-primary fw-bold">Create User</button>
         </div>
