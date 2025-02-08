@@ -1,0 +1,261 @@
+﻿
+
+                    @model ECommerceApp.Models.EditProductViewModel
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+<h3 style="position: relative;left: 50%">Update Product</h3>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+<div id="updateUserWrapper">
+    <i id="openUpdateUser" class="fas fa-user-edit btn-icon"></i>
+</div>
+
+<hr />
+<div class="row" style="position: relative; left: 35%">
+    <div class="col-md-6">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Product.Id" />
+            <div class="form-group">
+                <label asp-for="Product.Name" class="control-label"></label>
+                <input asp-for="Product.Name" class="form-control" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Description" class="control-label"></label>
+                <input asp-for="Product.Description" class="form-control" />
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.StockQuantity" class="control-label"></label>
+                <input asp-for="Product.StockQuantity" class="form-control" />
+                <span asp-validation-for="Product.StockQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Category" class="control-label"></label>
+                <input asp-for="Product.Category" class="form-control" />
+                <span asp-validation-for="Product.Category" class="text-danger"></span>
+            </div>
+
+            <!-- Upload Product Images -->
+            <div class="form-group">
+                <label for="ProductImages">Upload Product Images</label>
+                <input type="file" id="ProductImages" name="ProductImages" class="form-control" multiple accept="image/*" onchange="handleFiles(this.files)" />
+
+                <div class="preview-container" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                    <!-- Preview newly uploaded images -->
+                    @if (Model.ProductImages != null && Model.ProductImages.Count > 0)
+                    {
+                        <div>
+                            <label>Current Attachments:</label>
+                            <div class="preview-container" style="display: flex; gap: 10px;">
+                                @foreach (var image in Model.ProductImages)
+                                {
+                                    <div class="preview-item" style="position: relative;">
+                                        <img src="@image.ImageUrl" alt="Product Image" style="width: 100px; height: 100px;" />
+                                        <!-- Cross button to remove the image -->
+                                        <button type="button" class="btn btn-danger btn-sm remove-image" data-image-id="@image.Id" style="position: absolute; top: 5px; right: 5px; background-color: transparent; border: none; color: white; font-size: 16px;">&#10006;</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Image Preview Section -->
+            <div id="imagePreview" class="mt-3" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+
+            <!-- Hidden Input to Store Files (for form submission) -->
+            <input type="hidden" name="ImageFiles" id="ImageFiles" />
+            <input type="hidden" name="RemovedImageIds" id="RemovedImageIds" />
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="sidebar" class="sidebar">
+    <button type="button" class="close-btn" id="closeSidebar">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <div id="updateUserContainer"></div>
+</div>
+
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+<div>
+    <a asp-action="Index">
+        <i class="fas fa-arrow-left"></i> <!-- Font Awesome icon -->
+    </a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+    <script>
+       
+
+                let selectedFiles = [];
+        let removedImageIds = []; // Store removed image IDs
+
+        function handleFiles(files) {
+            for (let i = 0; i < files.length; i++) {
+                selectedFiles.push(files[i]);
+            }
+            console.log("Selected Files: ", selectedFiles);
+            updatePreview();
+        }
+
+        function updatePreview() {
+            let preview = document.getElementById('imagePreview');
+            preview.innerHTML = ''; // Clear the preview container
+
+            selectedFiles.forEach((file, index) => {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    let div = document.createElement('div');
+                    div.className = 'image-container';
+                    div.style.position = 'relative';
+                    div.innerHTML = `
+                        <img src="${e.target.result}" class="preview-image" style="width: 100px; height: 100px;"/>
+                        <button type="button" class="btn btn-danger btn-sm remove-btn" onclick="removeImage(${index})" style="position: absolute; top: 5px; right: 5px; background-color: transparent; border: none; color: white; font-size: 16px;">&#10006;</button>
+                    `;
+                    preview.appendChild(div);
+                };
+                reader.readAsDataURL(file);
+            });
+
+            // Update hidden input to reflect selected files
+            let dt = new DataTransfer();
+            selectedFiles.forEach(file => dt.items.add(file));
+            document.getElementById('ProductImages').files = dt.files;
+        }
+
+        function removeImage(index) {
+            selectedFiles.splice(index, 1); // Remove the file from the selected files array
+            updatePreview(); // Refresh the preview
+        }
+
+        $(".remove-image").click(function () {
+            var imageId = $(this).data("image-id");
+            removedImageIds.push(imageId); // Add the image ID to the removed list
+            $(this).closest(".preview-item").remove(); // Remove the image visually
+            updateRemovedImagesInput(); // Update the hidden input with removed image IDs
+        });
+
+        // Update the hidden input field with the removed image IDs
+        function updateRemovedImagesInput() {
+            document.getElementById('RemovedImageIds').value = JSON.stringify(removedImageIds); // Convert array to JSON string
+        }
+
+         $('#openUpdateUser').click(function() {
+
+            $('#openUpdateUser').hide();
+
+
+            $('#mainContent').addClass('faded');
+
+
+            $('#sidebar').addClass('active');
+            $.ajax({
+                url: 'http://localhost:5062' + '/Account/GetUpdateUserPartial',
+                type: 'GET',
+                success: function(data) {
+                    $('#updateUserContainer').html(data);
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+        });
+
+
+        $('#closeSidebar').click(function() {
+
+            $('#openUpdateUser').show();
+
+
+            $('#mainContent').removeClass('faded');
+
+
+            $('#sidebar').removeClass('active');
+        });
+
+
+    </script>
+}
+
+                <style>
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 400px;
+        height: 100%;
+        background: #f8f9fa;
+        padding: 20px;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: red;
+        float: right;
+        cursor: pointer;
+    }
+
+    #openUpdateUser {
+        position: relative;
+        z-index: 9999;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    #updateUserWrapper {
+        position: fixed;
+        top: 20px;
+        right: 50px;
+        z-index: 1000;
+    }
+
+    #openUpdateUser {
+        font-size: 24px;
+        color: #007bff;
+        cursor: pointer;
+    }
+
+        #openUpdateUser:hover {
+            color: #0056b3;
+        }
+</style>

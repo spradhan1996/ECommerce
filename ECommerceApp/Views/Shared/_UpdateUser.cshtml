@@ -1,0 +1,115 @@
+﻿
+
+                @model ECommerceApp.Models.Users
+
+<div id="successMessage" class="alert alert-success" style="display: none;"></div>
+<div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
+
+<div class="card mt-3">
+    <div class="card-header">Update User Profile</div>
+    <div class="card-body">
+        <form id="updateUserForm">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label for="updatedname">Name</label>
+                <input type="text" id="updatedname" name="Name" class="form-control" value="@Model.Name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="updatedNo">Mobile No</label>
+                <input type="text" id="updatedNo" name="MobileNo" class="form-control" value="@Model.MobileNo" required />
+            </div>
+
+           @*  <div class="form-group">
+                <label for="updatedRole">Role</label>
+                <select id="updatedRole" name="Role" class="form-control" required>
+                    <option value="Buyer" selected="@(Model.Role == "Buyer")">Buyer</option>
+                    <option value="Seller" selected="@(Model.Role == "Seller")">Seller</option>
+                </select>
+            </div> *@
+            <div class="form-group">
+                <label for="updatedRole">Role</label>
+            <select id="updatedRole" name="Role" class="form-control" required @(Model.Role == "Admin" ? "disabled" : "")>
+                @if (Model.Role == "Admin")
+                {
+                    <option value="Admin" selected>Admin</option>
+                }
+                else
+                {
+                    <option value="Buyer" selected="@(Model.Role == "Buyer")">Buyer</option>
+                    <option value="Seller" selected="@(Model.Role == "Seller")">Seller</option>
+                }
+            </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="updateUserBtn" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Logout Button -->
+<div class="logout-container">
+    <button id="logoutBtn" class="btn btn-danger">Logout</button>
+</div>
+
+<script>
+    document.getElementById("updateUserForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        let formData = new FormData(this);
+
+        fetch("@Url.Action("UpdateUser", "Account")", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById("successMessage").innerText = data.message;
+                document.getElementById("successMessage").style.display = "block";
+                setTimeout(() => document.getElementById("successMessage").style.display = "none", 10000);
+            } else {
+                document.getElementById("errorMessage").innerText = data.message;
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+
+    // Logout Button Click Event
+    // document.getElementById("updateUserBtn").addEventListener("click", function () {
+    //     fetch("@Url.Action("Logout", "Account")", { method: "POST" }) // Call Logout action
+    //     .then(() => {
+    //         window.location.href = "@Url.Action("Login", "Account")"; // Redirect to Login page
+    //     });
+    // });
+
+     document.getElementById("logoutBtn").addEventListener("click", function () {
+        fetch("@Url.Action("Logout", "Account")", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "RequestVerificationToken": document.querySelector('input[name="__RequestVerificationToken"]').value
+            }
+        })
+        .then(() => {
+            window.location.href = "@Url.Action("Login", "Account")"; // Redirect after logout
+        })
+        .catch(error => console.error("Error:", error));
+    });
+</script>
+
+<style>
+    .logout-container {
+        position: absolute;
+        bottom: 60px;
+        right: 20px;
+    }
+
+    #updateUserBtn {
+        margin-top: 15px; /* Move update button slightly down */
+    }
+</style>
+ 

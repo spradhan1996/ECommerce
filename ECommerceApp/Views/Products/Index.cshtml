@@ -1,0 +1,304 @@
+﻿
+
+
+         @model ECommerceApp.Models.IndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<h1>Products</h1>
+ @if (Model.CurrentUser.Role == "Admin" || Model.CurrentUser.Role == "Seller")
+                {
+<a asp-action="Create">Create New</a>
+                }
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+
+<div id="updateUserWrapper">
+    <i id="openUpdateUser" class="fas fa-user-edit btn-icon"></i>
+</div>
+
+
+<!-- Search Bar & Price Range Filter -->
+<br>
+<div class="filter-container">
+    <input type="text" id="searchInput" placeholder="Search products..." class="filter-input">
+
+    <div class="price-range">
+        <label for="priceRange">Price Range:</label>
+        <input type="range" id="priceRange" min="0" max="10000" step="100" value="10000">
+        <span id="priceValue">₹10000</span>
+    </div>
+</div>
+
+<!-- Product Container -->
+<div id="productList" class="product-container">
+    @foreach (var product in Model.Products)
+    {
+        <div class="product-card" data-name="@product.Name" data-price="@product.Price">
+            <div class="image-slider">
+                @if (Model.ProductImages.ContainsKey(product.Id))
+                {
+                    <div class="slider-container">
+                        @foreach (var image in Model.ProductImages[product.Id])
+                        {
+                            <img src="@image.ImageUrl" class="product-image">
+                        }
+                    </div>
+                }
+                else
+                {
+                    <img src="default-image.jpg" class="product-image">
+                }
+            </div>
+
+            <div class="product-details">
+                <h3>@product.Name</h3>
+                <p>@product.Description</p>
+                <p><strong>Price:</strong> ₹@product.Price</p>
+            </div>
+
+            <div class="product-actions">
+                @if (Model.CurrentUser.Role == "Admin" || Model.CurrentUser.Role == "Seller")
+                {
+                    <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger">Delete</a>
+                }
+                <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-info">Details</a>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
+<!-- Sidebar for Create Product -->
+<div id="sidebar" class="sidebar">
+    <button type="button" class="close-btn" id="closeSidebar">
+        <i class="fas fa-times"></i>
+    </button>
+
+    <div id="updateUserContainer"></div>
+</div>
+
+<style>
+    .filter-container {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .filter-input {
+        padding: 10px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .price-range {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #priceRange {
+        width: 150px;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        gap: 10px;
+    }
+
+        .pagination button {
+            padding: 10px 15px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            .pagination button:disabled {
+                background: #ccc;
+                cursor: not-allowed;
+            }
+
+        .pagination span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .product-card {
+        width: 250px;
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        background: #fff;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .image-slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .slider-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .product-image {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 400px;
+        height: 100%;
+        background: #f8f9fa;
+        padding: 20px;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: red;
+        float: right;
+        cursor: pointer;
+    }
+
+    #openUpdateUser {
+        position: relative;
+        z-index: 9999;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    #updateUserWrapper {
+        position: fixed;
+        top: 20px;
+        right: 50px;
+        z-index: 1000;
+    }
+
+    #openUpdateUser {
+        font-size: 24px;
+        color: #007bff;
+        cursor: pointer;
+    }
+
+        #openUpdateUser:hover {
+            color: #0056b3;
+        }
+</style>
+
+<script>
+    $(document).ready(function () {
+        // Search Functionality
+        $("#searchInput").on("keyup", function () {
+            const searchValue = $(this).val().toLowerCase();
+            const selectedPrice = $("#priceRange").val();
+
+            $(".product-card").each(function () {
+                const productName = $(this).data("name").toLowerCase();
+                const productPrice = parseFloat($(this).data("price"));
+
+                // Filter products based on search and price range
+                const matchesSearch = productName.includes(searchValue);
+                const matchesPrice = productPrice <= selectedPrice;
+
+                $(this).toggle(matchesSearch && matchesPrice);
+            });
+        });
+
+        // Price Range Filter
+        $("#priceRange").on("input", function () {
+            const selectedPrice = $(this).val();
+            $("#priceValue").text("₹" + selectedPrice);
+
+            const searchValue = $("#searchInput").val().toLowerCase();
+
+            $(".product-card").each(function () {
+                const productPrice = parseFloat($(this).data("price"));
+                const productName = $(this).data("name").toLowerCase();
+
+                // Filter based on price and search value
+                const matchesSearch = productName.includes(searchValue);
+                $(this).toggle(productPrice <= selectedPrice && matchesSearch);
+            });
+        });
+
+         $('#openUpdateUser').click(function() {
+
+            $('#openUpdateUser').hide();
+
+
+            $('#mainContent').addClass('faded');
+
+
+            $('#sidebar').addClass('active');
+            $.ajax({
+                url: 'http://localhost:5062' + '/Account/GetUpdateUserPartial',
+                type: 'GET',
+                success: function(data) {
+                    $('#updateUserContainer').html(data);
+                },
+                error: function(error) {
+                    console.log('Error:', error);
+                }
+            });
+        });
+
+
+        $('#closeSidebar').click(function() {
+
+            $('#openUpdateUser').show();
+
+
+            $('#mainContent').removeClass('faded');
+
+
+            $('#sidebar').removeClass('active');
+        });
+
+
+    });
+
+      
+    
+
+</script>

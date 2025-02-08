@@ -1,0 +1,267 @@
+﻿@* 
+
+
+
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<h2>Create New User</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form method="post" asp-action="CreateUser">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="newUsername">Name</label>
+        <input type="text" id="name" name="name" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="newUsername">Mobile Number</label>
+        <input type="text" id="mobileno" name="mobileno" class="form-control" required onkeyup="checkUsername()" />
+    </div>
+
+    <div class="form-group">
+        <label for="newUsername">Username</label>
+        <input type="text" id="newUsername" name="newUsername" class="form-control" required onkeyup="checkUsername()" />
+        <small id="usernameError" class="text-danger" style="display: none;">Username already exists!</small>
+    </div>
+
+    <div class="form-group">
+        <label for="newPassword">Password</label>
+        <input type="password" id="newPassword" name="newPassword" class="form-control" required onkeyup="validatePassword()" />
+    </div>
+
+    <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required onkeyup="validatePassword()" />
+        <small id="passwordError" class="text-danger" style="display: none;">Passwords do not match!</small>
+    </div>
+
+    <div class="form-group">
+        <label for="newRole">Role</label>
+        <select id="newRole" name="newRole" class="form-control" required>
+            <option value="Buyer">Buyer</option>
+            <option value="Seller">Seller</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" id="createUserBtn" class="btn btn-success" disabled>Create User</button>
+    </div>
+</form>
+
+<!-- Back to Login Link -->
+<div>
+    <a href="/Account/Login" class="btn btn-link">Back to Login</a>
+</div>
+
+<script>
+    function validatePassword() {
+        let password = document.getElementById("newPassword").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+        let errorMsg = document.getElementById("passwordError");
+        let createBtn = document.getElementById("createUserBtn");
+
+        if (password === confirmPassword && password.length > 0) {
+            errorMsg.style.display = "none";
+            createBtn.disabled = false;
+        } else {
+            errorMsg.style.display = "block";
+            createBtn.disabled = true;
+        }
+    }
+
+    function checkUsername() {
+        let username = document.getElementById("newUsername").value;
+        let errorMsg = document.getElementById("usernameError");
+        let createBtn = document.getElementById("createUserBtn");
+
+        if (username.length > 0) {
+            fetch(`/Account/CheckUsername?username=${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.exists) {
+                        errorMsg.style.display = "block";
+                        createBtn.disabled = true;
+                    } else {
+                        errorMsg.style.display = "none";
+                        createBtn.disabled = false;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    }
+</script>
+ *@
+
+
+               @model ECommerceApp.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Create User | E-Commerce App";
+}
+
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        background: white; /* Changed background color to white */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+
+    .btn-link {
+        text-decoration: none !important;
+        border: none !important;
+        outline: none !important;
+        display: inline-block;
+    }
+
+
+</style>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg p-4" style="width: 400px; border-radius: 10px; background: rgba(255, 255, 255, 0.9);">
+        <h2 class="text-center text-primary mb-4">E-Commerce App</h2>
+        <h3 class="text-center text-secondary mb-3">Create New User</h3>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success text-center">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger text-center">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <form method="post" asp-action="CreateUser" onsubmit="return validateForm()">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group mb-3">
+                <label for="name" class="fw-bold">Name <span class="text-danger">*</span></label>
+                <input type="text" id="name" name="name" class="form-control rounded-pill" required />
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="mobileno" class="fw-bold">Mobile Number <span class="text-danger">*</span></label>
+                <input type="text" id="mobileno" name="mobileno" class="form-control rounded-pill" required onkeyup="checkUsername()" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="newUsername" class="fw-bold">Username <span class="text-danger">*</span></label>
+                <input type="text" id="newUsername" name="newUsername" class="form-control rounded-pill" required onkeyup="checkUsername()" />
+                <small id="usernameError" class="text-danger" style="display: none;">Username already exists!</small>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="newPassword" class="fw-bold">Password <span class="text-danger">*</span></label>
+                <input type="password" id="newPassword" name="newPassword" class="form-control rounded-pill" required onkeyup="validatePassword()" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="confirmPassword" class="fw-bold">Confirm Password <span class="text-danger">*</span></label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control rounded-pill" required onkeyup="validatePassword()" />
+                <small id="passwordError" class="text-danger" style="display: none;">Passwords do not match!</small>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="newRole" class="fw-bold">Role <span class="text-danger">*</span></label>
+                <select id="newRole" name="newRole" class="form-control rounded-pill" required>
+                    <option value="">Select Role</option>
+                    <option value="Buyer">Buyer</option>
+                    <option value="Seller">Seller</option>
+                </select>
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" id="createUserBtn" class="btn btn-success w-100 rounded-pill" disabled>Create User</button>
+            </div>
+        </form>
+
+        <!-- Back to Login Link -->
+        <div class="text-center mt-3">
+            @* <a href="/Account/Login" class="btn btn-link text-decoration-none text-primary fw-bold">Back to Login</a> *@
+            <a href="/Account/Login" class="btn btn-link text-primary fw-bold" style="text-decoration: none !important; border: none !important;">Back to Login</a>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function validatePassword() {
+        let password = document.getElementById("newPassword").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+        let errorMsg = document.getElementById("passwordError");
+        let createBtn = document.getElementById("createUserBtn");
+
+        if (password === confirmPassword && password.length > 0) {
+            errorMsg.style.display = "none";
+            createBtn.disabled = false;
+        } else {
+            errorMsg.style.display = "block";
+            createBtn.disabled = true;
+        }
+    }
+
+    function checkUsername() {
+        let username = document.getElementById("newUsername").value;
+        let errorMsg = document.getElementById("usernameError");
+        let createBtn = document.getElementById("createUserBtn");
+
+        if (username.length > 0) {
+            fetch(`/Account/CheckUsername?username=${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.exists) {
+                        errorMsg.style.display = "block";
+                        createBtn.disabled = true;
+                    } else {
+                        errorMsg.style.display = "none";
+                        createBtn.disabled = false;
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    }
+
+    function validateForm() {
+        let fields = ["name", "mobileno", "newUsername", "newPassword", "confirmPassword", "newRole"];
+        let valid = true;
+
+        fields.forEach(id => {
+            let field = document.getElementById(id);
+            if (!field.value.trim()) {
+                field.classList.add("is-invalid");
+                valid = false;
+            } else {
+                field.classList.remove("is-invalid");
+            }
+        });
+
+        return valid;
+    }
+</script>
+

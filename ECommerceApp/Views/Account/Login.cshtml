@@ -1,0 +1,116 @@
+﻿@* 
+
+@model ECommerceApp.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<form method="post" asp-action="Login">
+    <div class="form-group">
+        <label for="Username">Username</label>
+        <input type="text" id="Username" name="Username" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="password" id="Password" name="Password" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+</form>
+
+<!-- Link to Create User Page -->
+<div>
+    <button id="createUserBtn" class="btn btn-link">Create User</button>
+</div>
+
+<script>
+    document.getElementById("createUserBtn").addEventListener("click", function() {
+        window.location.href = '/Account/CreateUser';  // Redirect to Create User page
+    });
+</script>
+ *@
+
+        @model ECommerceApp.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        /* background: linear-gradient(135deg, #667eea, #764ba2); */
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg p-4" style="width: 400px; border-radius: 10px; background: rgba(255, 255, 255, 0.9);">
+        <h2 class="text-center text-primary mb-4">Login</h2>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success text-center">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger text-center">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+
+        <form method="post" asp-action="Login">
+            <div class="form-group mb-3">
+                <label for="Username" class="fw-bold">Username</label>
+                <input type="text" id="Username" name="Username" class="form-control rounded-pill" required />
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="Password" class="fw-bold">Password</label>
+                <input type="password" id="Password" name="Password" class="form-control rounded-pill" required />
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-100 rounded-pill">Login</button>
+            </div>
+        </form>
+
+        <!-- Link to Create User Page -->
+        <div class="text-center mt-3">
+            <button id="createUserBtn" class="btn btn-link text-decoration-none text-primary fw-bold">Create User</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("createUserBtn").addEventListener("click", function() {
+        window.location.href = '/Account/CreateUser';  // Redirect to Create User page
+    });
+</script>
